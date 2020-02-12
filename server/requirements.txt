@@ -1,0 +1,7 @@
+psycopg2==2.7.5
+flask
+flask-graphql
+flask-migrate
+flask-sqlalchemy
+graphene
+graphene-sqlalchemy

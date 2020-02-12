@@ -5,6 +5,7 @@ var ExtractCssChunks = require("extract-css-chunks-webpack-plugin");
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var TerserPlugin = require('terser-webpack-plugin');
 var CircularDependencyPlugin = require('circular-dependency-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = require('./../config');
 
@@ -45,7 +46,8 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
             'process.env.BASE_PATH': JSON.stringify(BASE_PATH),
-        })
+        }),
+        new CopyWebpackPlugin(['index.html'])
     ],
     optimization: {
         minimizer: [new TerserPlugin()]

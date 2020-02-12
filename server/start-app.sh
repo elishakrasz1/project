@@ -1,0 +1,3 @@
+#!/bin/sh
+echo Starting python and starting the Flask service...
+python app.py runserver

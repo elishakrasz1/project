@@ -1,0 +1,20 @@
+{
+    "bank": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-leumi-bank-201331-authRole",
+            "UnauthRoleArn": "arn:aws:iam::556347854058:role/amplify-leumi-bank-201331-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::556347854058:role/amplify-leumi-bank-201331-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-leumi-bank-201331-deployment",
+            "UnauthRoleName": "amplify-leumi-bank-201331-unauthRole",
+            "StackName": "amplify-leumi-bank-201331",
+            "StackId": "arn:aws:cloudformation:eu-west-2:556347854058:stack/amplify-leumi-bank-201331/42a5f990-4cfa-11ea-8e35-0aea06869730",
+            "AmplifyAppId": "d34onr1uvpzchs"
+        },
+        "categories": {
+            "auth": {
+                "leumi04f774ce": {}
+            }
+        }
+    }
+}

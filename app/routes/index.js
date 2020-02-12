@@ -108,6 +108,13 @@ import { DefaultSidebar } from './../layout/components/DefaultSidebar';
 
 import { SidebarANavbar } from './../layout/components/SidebarANavbar';
 import { SidebarASidebar } from './../layout/components/SidebarASidebar';
+import SignOutComp from './Auth/SignOutComp';
+import SignUpComp from './Auth/SignUpComp';
+import ForgotPasswordComp from './Auth/ForgotPasswordComp'
+import ForgotPasswordResetComp from './Auth/ForgotPasswordResetComp'
+import ConfirmSignUpComp from './Auth/ConfirmSignUpComp'
+import ConfirmSignInComp from './Auth/ConfirmSignInComp'
+import SignInComp from './Auth/SignInComp';
 
 //------ Route Definitions --------
 // eslint-disable-next-line no-unused-vars
@@ -218,6 +225,16 @@ export const RoutedContent = () => {
             <Route component={ Register } path="/pages/register" />
             <Route component={ Success } path="/pages/success" />
             <Route component={ Timeline } path="/pages/timeline" />
+
+            { /* Auth Routes */ }
+            <Route component={ SignOutComp } path="/auth/signout" />
+            <Route component={ SignUpComp } path="/auth/signup" />
+            <Route component={ SignInComp } path="/auth/signin" />
+            <Route component={ ForgotPasswordComp } path="/auth/forgot-password" />
+            <Route component={ ForgotPasswordResetComp} path="/auth/password-reset" />
+            <Route component={ ConfirmSignInComp} path="/auth/confirm-signin" />
+            <Route component={ ConfirmSignUpComp} path="/auth/confirm-signup" />
+
 
             <Route path='/icons' exact component={Icons} />
 

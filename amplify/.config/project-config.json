@@ -1,0 +1,17 @@
+{
+    "projectName": "leumi",
+    "version": "3.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "app",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run build:dev",
+            "StartCommand": "npm run start"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
+}
