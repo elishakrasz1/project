@@ -1,6 +1,7 @@
 psycopg2==2.7.5
 flask
 flask-graphql
+flask_cors
 flask-migrate
 flask-sqlalchemy
 graphene

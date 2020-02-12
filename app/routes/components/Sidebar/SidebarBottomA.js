@@ -15,9 +15,9 @@ const SidebarBottomA = () => (
     <React.Fragment>
         { /* START Desktop */ }
         <Sidebar.HideSlim>
-            <Sidebar.Section className="pb-0">
+            {/* <Sidebar.Section className="pb-0">
                 <VersionSelector sidebar dashboard="Airframe" />
-            </Sidebar.Section>
+            </Sidebar.Section> */}
             <Sidebar.Section>
                 <FooterAuth className="text-muted" />
             </Sidebar.Section>

@@ -282,7 +282,7 @@ class CreateQuestionnaire(graphene.Mutation):
     supplier_personnel_changed = questionnaire_data.supplier_personnel_changed,
     customer_personnel_changed = questionnaire_data.customer_personnel_changed,
     invoiced_charges_usd = grquestionnaire_data.invoiced_charges_usd,
-    is_not_invoiced = questionnaire_data.is_not_invoiced,
+    is_not_invoiced = questionnaire_data.is_not_invoiced
         )
         db.session.add(questionnaire)
         db.session.commit()   
@@ -345,8 +345,8 @@ class CreateProject(graphene.Mutation):
 
     def mutate(root,info, project_data=None):
         project = Project(
-            c_project_id=project_data.c_project_id, user_type = project_data.user_type, signature_date=project_data.signature_date, service_type=project_data.service_type, project_name=project_data.project_name, service_commencement=project_data.service_commencement, contract_duration_month=project_data.contract_duration_month, contract_value_usd=project_data.contract_value_usd, ,projected_margin_usd=project_data.projected_margin_usd, component_of_bespoke=project_data.component_of_bespoke, 
-            estimated_value_usd=project_data.estimated_value_usd,often_provide_services=project_data.often_provide_services, is_transition_plan=project_data.is_transition_plan,
+            c_project_id=project_data.c_project_id, user_type = project_data.user_type, signature_date=project_data.signature_date, service_type=project_data.service_type, project_name=project_data.project_name, service_commencement=project_data.service_commencement, contract_duration_month=project_data.contract_duration_month, contract_value_usd=project_data.contract_value_usd,projected_margin_usd=project_data.projected_margin_usd, estimated_value_usd=project_data.estimated_value_usd,often_provide_services=project_data.often_provide_services, is_transition_plan=project_data.is_transition_plan,
+            component_of_bespoke=project_data.component_of_bespoke,
             estimated_costs_usd=project_data.estimated_costs_usd,transition_plan_date=project_data.transition_plan_date, 
             bespoke_services=project_data.bespoke_services, is_transition_charges=project_data.is_transition_charges,what_bespoke_services=project_data.what_bespoke_services,
             other_milestones=project_data.other_milestones, milestones=project_data.milestones, payment_milestones=project_data.payment_milestones,transition_charges_usd=project_data.transition_charges_usd, is_transformation_plan=project_data.is_transformation_plan, transformation_plan_start=project_data.transformation_plan_start, transformation_plan_end=project_data.transformation_plan_end, kpi_number=project_data.kpi_number,service_levels=project_data.service_levels, is_earn_back=project_data.is_earn_back, is_customer_satisfaction_report=project_data.is_customer_satisfaction_report, service_levels_without_credit=project_data.service_levels_without_credit, service_credit_cap=project_data.service_credit_cap,  customer_satisfaction_form=project_data.customer_satisfaction_form, governance_type=project_data.governance_type, governance_often=project_data.governance_often, key_personnel=project_data.key_personnel, supplier_personnel=project_data.supplier_personnel, customer_personnel=project_data.customer_personnel, planned_duration_month=project_data.planned_duration_month, negotiations_month=project_data.negotiations_month, sole_sourced=project_data.sole_sourced, proposed_period_weeks=project_data.proposed_period_weeks, actual_period_weeks=project_data.actual_period_weeks, is_due_diligence_completed=project_data.is_due_diligence_completed

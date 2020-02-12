@@ -1,17 +1,3 @@
-// import React, { Component } from 'react'
-
-// class SignUpComp extends Component {
-//     render() {
-//         return (
-//             <div>
-//                 SignUpComp
-//             </div>
-//         )
-//     }
-// }
-
-// export default SignUpComp;
-
 import React, { Component } from "react";
 import { Auth, Logger } from "aws-amplify";
 import { Link } from "react-router-dom";
@@ -135,7 +121,7 @@ class SignUpComp extends Component {
             </FormGroup>
             <ThemeConsumer>
               {({ color }) => (
-                <Button color={color} block onClick={this.signUp} tag={Link} to="/pages/confirmation">
+                <Button color={color} block onClick={this.signUp} tag={Link} to="/auth/confirm-signup">
                   Create Account
                 </Button>
               )}
@@ -144,12 +130,12 @@ class SignUpComp extends Component {
           {/* END Form */}
           {/* START Bottom Links */}
           <div className="d-flex mb-5">
-            <Link onClick={() => this.changeState('forgotPassword')} className="text-decoration-none">
+            <Link onClick={() => this.changeState('forgotPassword')} tag={Link} to="/auth/forgot-password" className="text-decoration-none">
                 
             {/* <Link to="/pages/forgot-password" className="text-decoration-none"> */}
               Forgot Password
             </Link>
-            <Link  onClick={() => this.changeState('signIn')} className="ml-auto text-decoration-none">
+            <Link  onClick={() => this.changeState('signIn')} tag={Link} to="/auth/signin" className="ml-auto text-decoration-none">
             {/* <Link to="/pages/login" className="ml-auto text-decoration-none"> */}
               Back to Login
             </Link>

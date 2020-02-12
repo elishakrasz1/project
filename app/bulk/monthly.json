@@ -1,0 +1,339 @@
+[
+    {
+        "id": 1,
+        "qu": "Has the Transition Plan been completed this month?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 2,
+        "qu": "Have the Transition Charges been paid this month?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 3,
+        "qu": "Has the first milestone (not transition milestone) been completed this month?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 4,
+        "qu": " Which payment milestones have been completed (other than transition milestones) this month?",
+        "type": "LIST",
+        "listOptions": [
+            
+        ],
+        "value": ""
+    },
+    {
+        "id": 5,
+        "qu": "How many payment milestones have changed this month (other than transition milestones)?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 6,
+        "qu": "What was the impact of the changes to the payment milestones this month / (Input per milestone in table)?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 7,
+        "qu": "Does the change to the payment milestone impact other payment milestones? ",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 8,
+        "qu": "Has the Transformation Plan been completed this month / (Yes/ No)?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 9,
+        "qu": "How many Service Levels /KPIs with Service Credits have missed their target level this month / (Number)?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 10,
+        "qu": "By how much on average have Service Levels /KPIs with Service Credits missed their target level this month?",
+        "type": "LIST",
+        "listOptions": [
+            "0 -1 %", "1 - 2.5%", "2.5 - 5%", "5%+"
+        ],
+        "value": ""
+    },
+    {
+        "id": 11,
+        "qu": "How many other Service Levels (without Service Credits) have missed their target level this month?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 12,
+        "qu": "By how much on average have the Service Levels (without Service Credits) missed their target level this month?",
+        "type": "LIST",
+        "listOptions": [
+            "0 -1 %", "1 - 2.5%", "2.5 - 5%", "5%+"
+        ],
+        "value": ""
+    },
+    {
+        "id": 13,
+        "qu": "By how much on average have the Service Levels (without Service Credits) missed their target level this month / (Dropdown of % of miss)?",
+        "type": "INPUT",
+        "listOptions": [
+            "0 -1 %", "1 - 2.5%", "2.5 - 5%", "5%+"
+        ],
+        "value": ""
+    },
+    {
+        "id": 14,
+        "qu": "WHow many of the Service Levels (without Service Credits) have been moved to be Service Levels/KPIs with Service Credits this month?",
+        "type": "INPUT",
+        "listOptions": [
+
+        ],
+        "value": ""
+    },
+    {
+        "id": 15,
+        "qu": "What service credits are payable this month?",
+        "type": "INPUT",
+        "listOptions": [
+        ],
+        "value": ""
+    },
+    {
+        "id": 16,
+        "qu": "What Service Credits have been paid this month?",
+        "type": "INPUT",
+        "listOptions": [
+            
+        ],
+        "value": ""
+    },
+    {
+        "id": 17,
+        "qu": "Do the Service Credits paid this month relate to this month or previous months?",
+        "type": "LIST",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 18,
+        "qu": "Has earn back been offset against Service Credits this month / + By how much?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 19,
+        "qu": "Is the Supplier still provding bespoke services this month?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 20,
+        "qu": "Is the Supplier still providing bespoke services this month?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 21,
+        "qu": "What bespoke services is the Supplier providing this month?",
+        "type": "LIST",
+        "listOptions": ["transformation", "implementation", "development", "other" ],
+        "value": ""
+    },
+    {
+        "id": 22,
+        "qu": "Was there a Customer Satisfaction report this month?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 23,
+        "qu": "What was the result of the Customer Satisfaction report / (Number)?",
+        "type": "INPUT",
+        "listOptions": [
+        ],
+        "value": ""
+    },
+    {
+        "id": 24,
+        "qu": "Have each of the governance meetings taken place for this month?",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 25,
+        "qu": "Have the parties agreed minutes for each of the governance meetings for this month?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 26,
+        "qu": "Have there been any exceptional/ additional governance meetings this month? ",
+        "type": "LIST",
+        "listOptions": ["Yes",
+            "No"],
+        "value": ""
+    },
+    {
+        "id": 27,
+        "qu": "What were the exceptional/additional governance meetings about (was the additional meeting about core risk issue (price, timing scope, dispute), additional business/ other matter?",
+        "type": "LIST",
+        "listOptions": [
+            "scope","price","timetable","performance","other"
+        ],
+        "value": ""
+    },
+    {
+        "id": 28,
+        "qu": "Have there been any formal notices or disputes this month? ",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 29,
+        "qu": "what were the formal notices or disputes about??",
+        "type": "LIST",
+        "listOptions": [
+            "scope","price","timetable","performance","other"
+        ],
+        "value": ""
+    },
+    {
+        "id": 30,
+        "qu": "Did each formal notice / dispute relate to a new issue or an existing issue?",
+        "type": "LIST",
+        "listOptions": [
+            "New",
+            "Existing"
+        ],
+        "value": ""
+    },
+    {
+        "id": 31,
+        "qu": "How many change notices (CCNs) have been initiated this month?",
+        "type": "INPUt",
+        "listOptions": [
+        ],
+        "value": ""
+    },
+    {
+        "id": 32,
+        "qu": "How many change notices (CCNs) have been signed this month",
+        "type": "INPUT",
+        "listOptions": [
+        ],
+        "value": ""
+    },
+    {
+        "id": 33,
+        "qu": "What was the type of change in each of these signed change notices? (scope/ price / timing / contractual / other)? What was the size of change and when was it initiated? (Table)?",
+        "type": "LIST",
+        "listOptions": [
+        ],
+        "value": ""
+    },
+    {
+        "id": 34,
+        "qu": "How many Key Personnel changed this month? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 35,
+        "qu": "For each Key Person that changed this month - how long had they been in the role?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 36,
+        "qu": "How many Supplier Personnel (providing the Services) changed this month?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 37,
+        "qu": "How many Customer Personnel (involved in the management/receipt of the Services) changed this month (table)?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 38,
+        "qu": "What was the amount of Charges invoiced this month?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 39,
+        "qu": "Were they any Charges which should have been invoiced this month which were not invoiced?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "value": ""
+    },
+    {
+        "id": 40,
+        "qu": "What Charges were paid this month and when were they invoiced?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    },
+    {
+        "id": 41,
+        "qu": "What were the costs incurred this month?",
+        "type": "INPUT",
+        "listOptions": [],
+        "value": ""
+    }
+]

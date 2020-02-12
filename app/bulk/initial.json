@@ -1,0 +1,371 @@
+[
+    {
+        "id": 1,
+        "qu": "Are you the Customer or Supplier?",
+        "type": "LIST",
+        "listOptions": [
+            "Customer",
+            "Supplier"
+        ],
+        "name": "userType"
+    },
+    {
+        "id": 2,
+        "qu": "What is the contract number?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "cProjectId"
+    },
+    {
+        "id": 3,
+        "qu": "What is the title of the contract?",
+        "type": "TEXT",
+        "listOptions": [],
+        "name": "projectName"
+    },
+    {
+        "id": 4,
+        "qu": " What is the type of Service?",
+        "type": "LIST",
+        "listOptions": [
+            "IT development",
+            "IT services",
+            "F&A",
+            "compliance",
+            "consultancy",
+            "other services"
+        ],
+        "name": "serviceType"
+    },
+    {
+        "id": 5,
+        "qu": "What is the Contract signature date?",
+        "type": "DATE",
+        "listOptions": [],
+        "name": "signatureDate"
+    },
+    {
+        "id": 6,
+        "qu": "What is the Service Commencement date?",
+        "type": "DATE",
+        "listOptions": [],
+        "name": "serviceCommencement"
+    },
+    {
+        "id": 7,
+        "qu": "What is the duration of the Contract? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "contractDurationMonth"
+    },
+    {
+        "id": 8,
+        "qu": "What is the estimated contract value (total value over the term)?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "contractValueUsd"
+    },
+    {
+        "id": 9,
+        "qu": "What is the estimated contract value for each year of the Contract?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "estimatedValueUsd"
+    },
+    {
+        "id": 10,
+        "qu": "What is the projected margin on the Contract?",
+        "type": "LIST",
+        "listOptions": [
+            "0-10%",
+            "10-20%",
+            "20-30%",
+            "30% or greater"
+        ],
+        "name": "projectedMarginUsd"
+    },
+    {
+        "id": 11,
+        "qu": "What are the estimated costs for each year of the Contract?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "estimatedCostsUsd"
+    },
+    {
+        "id": 12,
+        "qu": "Are there bespoke services as part of the Services?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "bespokeServices"
+    },
+    {
+        "id": 13,
+        "qu": "What are the bespoke services ?",
+        "type": "LIST",
+        "listOptions": [
+            "transformation",
+            "implementation",
+            "development",
+            "other"
+        ],
+        "name": "whatBespokeServices"
+    },
+    {
+        "id": 14,
+        "qu": "What is the % Component of bespoke services as part of overall services?",
+        "type": "LIST",
+        "listOptions": [
+            "10% or less",
+            "10-20%",
+            "20-30%",
+            "30% or greater"
+        ],
+        "name": "componentOfBespoke"
+    },
+    {
+        "id": 15,
+        "qu": "How often does the Supplier provide these bespoke services as part of the services?",
+        "type": "LIST",
+        "listOptions": [
+            "always",
+            "regularly",
+            "rarely",
+            "just for this client"
+        ],
+        "name": "oftenProvideServices"
+    },
+    {
+        "id": 16,
+        "qu": " Is there a Transition Plan?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isTransitionPlan"
+    },
+    {
+        "id": 17,
+        "qu": "What is the planned completion date of the Transition Plan?",
+        "type": "DATE",
+        "listOptions": [],
+        "name": "transitionPlanDate"
+    },
+    {
+        "id": 18,
+        "qu": "Are charges payable for completion of transition?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isTransitionCharges"
+    },
+    {
+        "id": 19,
+        "qu": "What are the Charges for transition?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "transitionChargesUsd"
+    },
+    {
+        "id": 20,
+        "qu": "Are there  milestones?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "otherMiliestones"
+    },
+    {
+        "id": 21,
+        "qu": "How many milestones are there (other than transition milestones)? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "milestones"
+    },
+    {
+        "id": 22,
+        "qu": " How many payment milestones are there (other than transition milestone)? What are the dates and charges for them?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "paymentMilestones"
+    },
+    {
+        "id": 23,
+        "qu": " Is there a Transformation Plan?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isTransformationPlan"
+    },
+    {
+        "id": 24,
+        "qu": "What is the start date for the transformation plan and what is it’s projected completion date?",
+        "type": "DATE",
+        "listOptions": [],
+        "name": "transformationPlanStart, transformationPlanEnd"
+    },
+    {
+        "id": 25,
+        "qu": "Are there any Service Levels?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "serviceLevels"
+    },
+    {
+        "id": 26,
+        "qu": "How many Service Levels /KPIs with service credits attached are there? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "kpiNumber"
+    },
+    {
+        "id": 27,
+        "qu": "How many other Service Levels (without Service Credits attached) are there? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "serviceLevelsWithoutCredit"
+    },
+    {
+        "id": 28,
+        "qu": "What is the cap on Service Credits per month/ per year ? ",
+        "type": "LIST",
+        "listOptions": [
+            "month",
+            "year",
+            "both"
+        ],
+        "name": "serviceCreditCap"
+    },
+    {
+        "id": 29,
+        "qu": "Is there earn back against Service Credits?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isEarnBack"
+    },
+    {
+        "id": 30,
+        "qu": "Is there a Customer Satisfaction report?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isCustomerSatisfactionReport"
+    },
+    {
+        "id": 31,
+        "qu": "What is the form of the Customer Satisfaction report?",
+        "type": "LIST",
+        "listOptions": [
+            "Customer Service Score (CSAT)",
+            "Customer Effort Score (CES)",
+            "other method"
+        ],
+        "name": "customerSatisfactionForm"
+    },
+    {
+        "id": 32,
+        "qu": "What governance meetings are there?",
+        "type": "LIST",
+        "listOptions": [
+            "opperational",
+            "commercial",
+            "steering group",
+            "other"
+        ],
+        "name": "governanceType"
+    },
+    {
+        "id": 33,
+        "qu": " How often do these governance meetings take place?",
+        "type": "LIST",
+        "listOptions": [
+            "see spreadsheet"
+        ],
+        "name": "governanceOften"
+    },
+    {
+        "id": 34,
+        "qu": " How many Key Personnel are there? ",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "keyPersonnel"
+    },
+    {
+        "id": 35,
+        "qu": "What is the total number of Supplier Personnel involved in providing the Services?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "supplierPersonnel"
+    },
+    {
+        "id": 36,
+        "qu": "What is the total number of Customer Personnel involved in the management/receipt of the Services ?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "customerPersonnel"
+    },
+    {
+        "id": 37,
+        "qu": "What was the planned duration of contract negotiations prior to contract signature?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "plannedDurationMonth"
+    },
+    {
+        "id": 38,
+        "qu": "What was the actual duration of contract negotiations prior to contract signature?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "negotiationsMonth"
+    },
+    {
+        "id": 39,
+        "qu": "Was it a sole sourced or competitive bid process?",
+        "type": "LIST",
+        "listOptions": [
+            "soul sourced",
+            "competitive bid"
+        ],
+        "name": "soleSourced"
+    },
+    {
+        "id": 40,
+        "qu": "What was the proposed period of Supplier due diligence?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "proposedPeriodWeeks"
+    },
+    {
+        "id": 41,
+        "qu": "What was the actual period of Supplier due diligence?",
+        "type": "INPUT",
+        "listOptions": [],
+        "name": "actualPeriodWeeks"
+    },
+    {
+        "id": 42,
+        "qu": "Was Supplier due diligence completed?",
+        "type": "LIST",
+        "listOptions": [
+            "Yes",
+            "No"
+        ],
+        "name": "isDueDiligenceCompleted"
+    }
+]

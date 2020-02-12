@@ -26,7 +26,10 @@ export const DefaultSidebar = () => (
         <Sidebar.HideSlim>
             <Sidebar.Section>
                 <Link to="/" className="sidebar__brand">
-                    <LogoThemed checkBackground />
+                    {/* <LogoThemed checkBackground /> */}
+                    <span style={{
+                fontSize: "36px",
+            }}>Ginzi</span>
                 </Link>
             </Sidebar.Section>
         </Sidebar.HideSlim>
@@ -34,7 +37,7 @@ export const DefaultSidebar = () => (
 
         { /* START SIDEBAR: Only for Mobile */ }
         <Sidebar.MobileFluid>
-            <SidebarTopA />
+            {/* <SidebarTopA /> */}
             
             <Sidebar.Section fluid cover>
                 { /* SIDEBAR: Menu */ }

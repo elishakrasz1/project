@@ -115,6 +115,7 @@ import ForgotPasswordResetComp from './Auth/ForgotPasswordResetComp'
 import ConfirmSignUpComp from './Auth/ConfirmSignUpComp'
 import ConfirmSignInComp from './Auth/ConfirmSignInComp'
 import SignInComp from './Auth/SignInComp';
+import { QuestionnaireWizard } from './Dashboards/Questionnaire/QuestionnaireWizard';
 
 //------ Route Definitions --------
 // eslint-disable-next-line no-unused-vars
@@ -126,6 +127,7 @@ export const RoutedContent = () => {
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
             <Route path="/dashboards/system" exact component={System} />
+            <Route path="/dashboards/questionnaire" exact component={QuestionnaireWizard} />
             <Route path="/dashboards/monitor" exact component={Monitor} />
             <Route path="/dashboards/financial" exact component={Financial} />
             <Route path="/dashboards/stock" exact component={Stock} />
