@@ -116,6 +116,11 @@ import ConfirmSignUpComp from './Auth/ConfirmSignUpComp'
 import ConfirmSignInComp from './Auth/ConfirmSignInComp'
 import SignInComp from './Auth/SignInComp';
 import { QuestionnaireWizard } from './Dashboards/Questionnaire/QuestionnaireWizard';
+import Main from '../components/main';
+import TestForm from './Dashboards/TestForm';
+import SimpleForm from './Dashboards/TestForm/SimpleForm';
+import Aspect from './Dashboards/TestForm/Aspect';
+
 
 //------ Route Definitions --------
 // eslint-disable-next-line no-unused-vars
@@ -124,6 +129,8 @@ export const RoutedContent = () => {
         <Switch>
             {/* <Redirect from="/" to="/dashboards/projects" exact /> */}
             <Redirect from="/" to="/auth/signin" exact />
+
+            <Route path="/dashboards/main" exact component={Main} />
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />
@@ -133,6 +140,7 @@ export const RoutedContent = () => {
             <Route path="/dashboards/financial" exact component={Financial} />
             <Route path="/dashboards/stock" exact component={Stock} />
             <Route path="/dashboards/reports" exact component={Reports} />
+            <Route path="/dashboards/form" exact component={Aspect} />
 
             <Route path='/widgets' exact component={Widgets} />
             
