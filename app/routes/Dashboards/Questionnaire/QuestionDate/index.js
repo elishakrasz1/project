@@ -48,6 +48,7 @@ const QuestionDate = props => {
       return;
     }
     setValue(newValue);
+    console.log('date', newValue)
   }
 
   return (
@@ -66,7 +67,10 @@ const QuestionDate = props => {
           marginLeft: "100px"
         }}
       >
-          <DatePickerComp />
+          <DatePickerComp 
+            onClick={onValueChange}
+            onValueChange={onValueChange}
+          />
         {/* <Form>
           <FormGroup>
             <Label for="exampleEmail">Please Enter...Date</Label>
@@ -93,7 +97,7 @@ const QuestionDate = props => {
             color="primary"
             className="ml-auto px-4"
           >
-            Next
+            {final ? "Finish" : "Next"}
             <i className="fa fa-angle-right ml-2"></i>
           </Button>
         </div>

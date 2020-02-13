@@ -130,13 +130,13 @@ class SignUpComp extends Component {
           {/* END Form */}
           {/* START Bottom Links */}
           <div className="d-flex mb-5">
-            <Link onClick={() => this.changeState('forgotPassword')} tag={Link} to="/auth/forgot-password" className="text-decoration-none">
+            {/* <Link onClick={() => this.changeState('forgotPassword')} tag={Link} to="/auth/forgot-password" className="text-decoration-none"> */}
                 
-            {/* <Link to="/pages/forgot-password" className="text-decoration-none"> */}
+            <Link to="/auth/forgot-password" className="text-decoration-none">
               Forgot Password
             </Link>
-            <Link  onClick={() => this.changeState('signIn')} tag={Link} to="/auth/signin" className="ml-auto text-decoration-none">
-            {/* <Link to="/pages/login" className="ml-auto text-decoration-none"> */}
+            {/* <Link  onClick={() => this.changeState('signIn')} tag={Link} to="/auth/signin" className="ml-auto text-decoration-none"> */}
+            <Link to="/auth/signin" className="ml-auto text-decoration-none">
               Back to Login
             </Link>
           </div>

@@ -25,13 +25,55 @@ import {
   DropdownItem,
   UncontrolledDropdown
 } from "../../../../components";
+import { func } from "prop-types";
+
+const bodyObject = {}
 
 const QuestionInput = props => {
   const { qu, name } = props;
   const { final } = props;
-  const [value, setValue] = React.useState("");
-
-  // const [form, setState] = useState({ })
+  const [value, setValue] = React.useState([]);
+  
+  const [form, setState] = useState({
+    id: '',
+    cProjectId: '',
+    projectName: '',
+    signatureDate: '',
+    serviceCommencement: '',
+    contractDurationMonth: '',
+    contractValueUsd: '',
+    projectedMargin: '',
+    componentOfBespoke: '',
+    oftenProvideServices: '',
+    isTransitionPlan: '',
+    transitionPlanDate: '',
+    isTransitionCharges: '',
+    transitionCharges: '',
+    isTransformationPlan: '',
+    transformationPlanStart: '',
+    transformationPlanEend: '',
+    serviceLevelsWithCredit: '',
+    isEarnBack: '',
+    isCustomerSatisfactionReport: '',
+    customerSatisfactionForm: '',
+    governanceType: '',
+    governanceOften: '',
+    keyPersonnel: '',
+    supplierPersonnel: '',
+    customerPersonnel: '',
+    plannedNegotiationMonth: '',
+    negotiationsMonth: '',
+    soleSourced: '',
+    proposedPeriodWeeks: '',
+    actualPeriodWeeks: '',
+    isDueDiligenceCompleted: '',
+    agreementParty: '',
+    typeOfService: '',
+    currency: '',
+    serviceLevelWithoutCredit: '',
+    serviceLevelCapPercentage: '',
+    serviceCredeitCapType: '',
+  })
 
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
@@ -43,23 +85,30 @@ const QuestionInput = props => {
     props.prevFn();
   }
 
+  function updateField(e) {
+    setState({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+    console.log('object', form)
+  }
   function onValueChange(newValue) {
     if (value === newValue) {
       setValue(newValue);
       return;
     }
     setValue(newValue);
-    console.log('new', newValue)
+    console.log('new', value)
   }
 
 
-  const updateField = e => {
-    setState({
-      ...form,
-      [e.target.name]: e.target.value
-    });
-    console.log('doug', form);
-  };
+  // const updateField = e => {
+  //   setState({
+  //     ...form,
+  //     [e.target.name]: e.target.value
+  //   });
+  //   console.log('doug', form);
+  // };
 
 
   return (
@@ -87,9 +136,11 @@ const QuestionInput = props => {
               <Input
                 type="number"
                 name={name}
+                value={value}
+                // value={form[name]}
                 placeholder="Value"
-                onChange={updateField}
-                value={form[name]}
+                // onChange={updateField}
+                onChange={(event) => onValueChange(event.target.value)}
               />
             </Col>
           </FormGroup>

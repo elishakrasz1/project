@@ -80,7 +80,7 @@ class SignInComp extends Component {
           });
       }
     componentDidMount() {
-      console.log(Auth.signIn.username, logger)
+      // console.log(Auth._getUserData)
     }
     render() {
         const { authState, authData } = this.props;
@@ -95,8 +95,6 @@ class SignInComp extends Component {
               <HeaderAuth title="Sign In to Application" />
               {/* END Header */}
               {/* START Form */}
-              Practice
-
               <Form className="mb-3">
                 <FormGroup>
                   <Label for="emailAdress">UserName/Email Adress</Label>
@@ -123,7 +121,7 @@ class SignInComp extends Component {
                 </FormGroup>
                 <ThemeConsumer>
                   {({ color }) => (
-                    <Button color={color} onClick={this.signIn} block tag={Link} to="/">
+                    <Button color={color} onClick={this.signIn} block tag={Link} to="/dashboards/projects">
                       Sign In
                     </Button>
                   )}
@@ -132,10 +130,10 @@ class SignInComp extends Component {
               {/* END Form */}
               {/* START Bottom Links */}
               <div className="d-flex mb-5">
-                <Link  onClick={() => this.changeState('forgotPassword')} className="text-decoration-none">
+                <Link to="/auth/forgot-password" className="text-decoration-none">
                   Forgot Password
                 </Link>
-                <Link onClick={() => this.changeState('signUp')} className="ml-auto text-decoration-none">
+                <Link to="/auth/signup" className="ml-auto text-decoration-none">
                   Register
                 </Link>
               </div>

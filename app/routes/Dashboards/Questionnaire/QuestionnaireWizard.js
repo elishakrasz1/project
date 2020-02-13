@@ -552,21 +552,21 @@ export class QuestionnaireWizard extends React.Component {
                                 KPIs
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[3] }
+                                id={ sequence[4] }
                                 icon={ <i className="fa fa-navicon fa-fw"></i> }
                                 complete={ this._isComplete(sequence[3]) }
                             >
                                 Governance
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[3] }
+                                id={ sequence[4] }
                                 icon={ <i className="fa fa-navicon fa-fw"></i> }
                                 complete={ this._isComplete(sequence[3]) }
                             >
                                 Personnel
                             </Wizard.Step>
                             <Wizard.Step
-                                id={ sequence[3] }
+                                id={ sequence[5] }
                                 icon={ <i className="fa fa-navicon fa-fw"></i> }
                                 complete={ this._isComplete(sequence[3]) }
                             >

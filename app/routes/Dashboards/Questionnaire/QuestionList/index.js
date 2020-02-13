@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import _ from "lodash";
 
 import {
@@ -50,17 +50,21 @@ const QuestionList = props => {
       return;
     }
     setValue(newValue);
+    console.log('ivalue', newValue)
+
   }
 
-  const onCheckboxBtnClick = (selected) => {
-    const index = cSelected.indexOf(selected);
-    if (index < 0) {
-      cSelected.push(selected);
-    } else {
-      cSelected.splice(index, 1);
-    }
-    setCSelected([...cSelected]);
-  }
+  // const onCheckboxBtnClick = selected => {
+  //   const index = cSelected.indexOf(selected);
+  //   if (index < 0) {
+  //     cSelected.push(selected);
+  //   } else {
+  //     cSelected.splice(index, 1);
+  //   }
+  //   setCSelected([...cSelected]);
+  //   console.log('selected', index)
+  //   console.log('i', index)
+  // };
   return (
     <div>
       <CardBody
@@ -77,11 +81,28 @@ const QuestionList = props => {
           marginLeft: "100px"
         }}
       >
-          <ButtonGroup style={{
-              marginLeft: '5px'
-          }}>
-                {listOptions.map((item, i) => <Button outline color="primary" name={name}  onClick={() => setRSelected(i)} active={rSelected === i} style={{ marginRight: '8px'}}>{item}</Button>)}
-          </ButtonGroup>
+        <ButtonGroup
+          style={{
+            marginLeft: "5px"
+          }}
+        >
+          {listOptions.map((value, index) => (
+            <Button
+              outline
+              key={index}
+              color="primary"
+              name={name}
+              value={value}
+              // onClick={onCheckboxBtnClick}
+              onClick={onValueChange}
+              // onClick={() => setRSelected(i)}
+              // active={rSelected === i}
+              style={{ marginRight: "8px" }}
+            >
+              {value}
+            </Button>
+          ))}
+        </ButtonGroup>
         {/* <Form>
           <FormGroup>
             <Label style={{
@@ -110,7 +131,7 @@ const QuestionList = props => {
             color="primary"
             className="ml-auto px-4"
           >
-            Next
+            {final ? "Finish" : "Next"}
             <i className="fa fa-angle-right ml-2"></i>
           </Button>
         </div>

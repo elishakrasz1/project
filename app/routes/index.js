@@ -122,7 +122,8 @@ import { QuestionnaireWizard } from './Dashboards/Questionnaire/QuestionnaireWiz
 export const RoutedContent = () => {
     return (
         <Switch>
-            <Redirect from="/" to="/dashboards/projects" exact />
+            {/* <Redirect from="/" to="/dashboards/projects" exact /> */}
+            <Redirect from="/" to="/auth/signin" exact />
             
             <Route path="/dashboards/analytics" exact component={Analytics} />
             <Route path="/dashboards/projects" exact component={ProjectsDashboard} />

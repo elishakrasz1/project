@@ -29,26 +29,78 @@ import {
 const QuestionText = props => {
   const { qu } = props;
   const { final } = props;
-  const [value, setValue] = React.useState("");
+  // const [value, setValue] = React.useState("");
+
+  const [form, setState] = useState({
+    id: '',
+    cProjectId: '',
+    projectName: '',
+    signatureDate: '',
+    serviceCommencement: '',
+    contractDurationMonth: '',
+    contractValueUsd: '',
+    projectedMargin: '',
+    componentOfBespoke: '',
+    oftenProvideServices: '',
+    isTransitionPlan: '',
+    transitionPlanDate: '',
+    isTransitionCharges: '',
+    transitionCharges: '',
+    isTransformationPlan: '',
+    transformationPlanStart: '',
+    transformationPlanEend: '',
+    serviceLevelsWithCredit: '',
+    isEarnBack: '',
+    isCustomerSatisfactionReport: '',
+    customerSatisfactionForm: '',
+    governanceType: '',
+    governanceOften: '',
+    keyPersonnel: '',
+    supplierPersonnel: '',
+    customerPersonnel: '',
+    plannedNegotiationMonth: '',
+    negotiationsMonth: '',
+    soleSourced: '',
+    proposedPeriodWeeks: '',
+    actualPeriodWeeks: '',
+    isDueDiligenceCompleted: '',
+    agreementParty: '',
+    typeOfService: '',
+    currency: '',
+    serviceLevelWithoutCredit: '',
+    serviceLevelCapPercentage: '',
+    serviceCredeitCapType: '',
+  })
+
 
   function nextPreprocess() {
-    props.saveState(props.index, { id: props.id, value });
+    props.saveState(props.index, { id: props.id });
+    // props.saveState(props.index, { id: props.id, value });
     props.nextFn();
   }
 
   function previousPreprocess() {
-    props.saveState(props.index, { id: props.id, value });
+    props.saveState(props.index, { id: props.id });
+    // props.saveState(props.index, { id: props.id, value });
     props.prevFn();
   }
 
-  function onValueChange(newValue) {
-    if (value === newValue) {
-      setValue(newValue);
-      return;
-    }
-    setValue(newValue);
-  }
+  // function onValueChange(newValue) {
+  //   if (value === newValue) {
+  //     setValue(newValue);
+  //     return;
+  //   }
+  //   setValue(newValue);
+  //   console.log('newValue', newValue)
+  // }
 
+  function updateField(e) {
+    setState({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+    console.log('object', ...form)
+  }
   return (
     <div>
       <CardBody
@@ -74,9 +126,13 @@ const QuestionText = props => {
               <Input
                 type="text"
                 name={name}
-                placeholder="Text"
-                onChange={onValueChange}
-                value={value}
+                value={form[name]}
+                placeholder="Value"
+                onChange={updateField}
+                // name={name}
+                // placeholder="Text"
+                // value={value}
+                // onChange={(event) => onValueChange(event.target.value)}
               />
             </Col>
           </FormGroup>
@@ -93,7 +149,7 @@ const QuestionText = props => {
             color="primary"
             className="ml-auto px-4"
           >
-            Next
+           {final ? "Finish" : "Next"}
             <i className="fa fa-angle-right ml-2"></i>
           </Button>
         </div>

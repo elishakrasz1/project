@@ -114,12 +114,12 @@ class ConfirmSignUpComp extends Component {
           {/* END Form */}
           {/* START Bottom Links */}
           <div className="d-flex mb-5">
-            <Link  onClick={() => this.changeState('signIn')} className="text-decoration-none">
-            {/* <Link to="/pages/forgotpassword" className="text-decoration-none"> */}
+            {/* <Link  onClick={() => this.changeState('signIn')} className="text-decoration-none"> */}
+            <Link to="/auth/forgot-password" className="text-decoration-none">
               Back to Sign In
             </Link>
-            <Link onClick={() => this.changeState('signUp')} className="ml-auto text-decoration-none">
-            {/* <Link to="/pages/register" className="ml-auto text-decoration-none"> */}
+            {/* <Link onClick={() => this.changeState('signUp')} className="ml-auto text-decoration-none"> */}
+            <Link to="/auth/signin" className="ml-auto text-decoration-none">
               Register
             </Link>
           </div>

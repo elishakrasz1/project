@@ -93,7 +93,7 @@ const QuestionMultiple = props => {
             color="primary"
             className="ml-auto px-4"
           >
-            Next
+            {final ? "Finish" : "Next"}
             <i className="fa fa-angle-right ml-2"></i>
           </Button>
         </div>

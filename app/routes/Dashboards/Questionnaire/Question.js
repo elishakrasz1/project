@@ -15,7 +15,19 @@ import QuestionMultiple from "./QuestionMultiple";
 
 const Question = (props) => {
     let final = false;
-    const { form } = props
+    
+    function finish(wizardState) {
+        wizardState.map((response) => {
+            props.onCreateResponse(
+                {
+                    responsesQuId: response.id,
+                    res: response.value
+                }
+            );
+            return (<CircularProgress />)
+        })
+        props.history.push('/')
+    }
     {console.log('internalinitial', initial)}
     return (
         <div>
@@ -30,7 +42,7 @@ const Question = (props) => {
                                 case 'INPUT':
                                     return {
                                         name: item.id,
-                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} form={form} />
+                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
                                     }
                                 case 'INPUT':
                                     return {
@@ -60,7 +72,7 @@ const Question = (props) => {
                             }
                         })
                     }
-                     />
+                    onFinish={finish} />
             </div>
         </div>
     )
