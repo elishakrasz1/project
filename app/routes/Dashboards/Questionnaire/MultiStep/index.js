@@ -12,7 +12,8 @@ class MultiStep extends Component {
         this.state = {
             curState: 0,
             steplist: [],
-            childState: []
+            childState: [],
+            form: {}
         };
 
         for (var i = 0; i < this.props.steps.length; i++) {
@@ -52,9 +53,17 @@ class MultiStep extends Component {
         this.props.onFinish(this.getStepState())
     }
 
+    onHandleFormChange(form) {
+        this.setState({ ...form })
+    }
+
     render() {
+        const { form } = this.state.form;
         return (
-            <div>
+            <div
+                form={form}
+                onFormChange={this.onHandleFormChange}
+            >
                 {this.state.steplist[this.state.curState]}
             </div>
         )

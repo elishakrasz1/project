@@ -13,9 +13,9 @@ import initial from '../../../bulk/initial.json'
 import QuestionMultiple from "./QuestionMultiple";
 
 
-const Question = () => {
+const Question = (props) => {
     let final = false;
-
+    const { form } = props
     {console.log('internalinitial', initial)}
     return (
         <div>
@@ -30,7 +30,7 @@ const Question = () => {
                                 case 'INPUT':
                                     return {
                                         name: item.id,
-                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} />
+                                        component: <QuestionInput id={item.id} index={index} qu={item.qu} final={final} name={item.name} form={form} />
                                     }
                                 case 'INPUT':
                                     return {

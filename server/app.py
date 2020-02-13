@@ -4,6 +4,14 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import *
 
+from sqlalchemy.dialects.postgresql import TIMESTAMP, UUID
+from sqlalchemy.orm import relationship
+# from sqlalchemy.ext.declarative import declarative_base
+
+# Base = declarative_base()
+# metadata = Base.metadata
+
+
 from flask_graphql import GraphQLView
 import graphene
 from graphene_sqlalchemy import SQLAlchemyObjectType, SQLAlchemyConnectionField
@@ -15,7 +23,7 @@ CORS(app)
 app.debug = True
 # Configs
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:Password1@localhost/ginzi_dev'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres:Password1@localhost/irony'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 db = SQLAlchemy(app)
 
@@ -29,10 +37,11 @@ db = SQLAlchemy(app)
 class User(db.Model):
     __tablename__ = 'user'
     
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(UUID, primary_key=True)
     username = db.Column(db.String(255))
     email = db.Column(db.String(255))
     phone = db.Column(db.String(16))
+    ccode = db.Column(db.String(8))
     
     def __repr__(self):
         return '<User %r>' % self.username
@@ -40,16 +49,16 @@ class User(db.Model):
 class UserProject(db.Model):
     __tablename__ = 'user_project'
 
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
-    # CREATED_BY = Column(UUID)
-    # UPDATED_BY = Column(UUID)
-    # UPDATED_AT = Column(DateTime)
-    # CREATED_AT = Column(DateTime)
+    id = db.Column(UUID, primary_key=True)
+    user_id = db.Column(db.ForeignKey('user.id'))
+    project_id = db.Column(db.ForeignKey('project.id'))
+    CREATED_BY = db.Column(UUID)
+    UPDATED_BY = db.Column(UUID)
+    UPDATED_AT = db.Column(db.DateTime, server_default=db.func.now())
+    CREATED_AT = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
 
-    # project = relationship('Project')
-    # user = relationship('User')
+    project = relationship('Project')
+    user = relationship('User')
     
     def __repr__(self):
         return '<UserProject %r>' % self.project_id
@@ -58,17 +67,13 @@ class UserProject(db.Model):
 class Project(db.Model):
     __tablename__ = 'project'
     
-    id = db.Column(db.Integer, primary_key=True)
-    user_type = db.Column(db.Integer)
+    id = db.Column(UUID, primary_key=True)
     c_project_id = db.Column(db.String(255))
     project_name = db.Column(db.String(255))
-    service_type = db.Column(db.Integer)
     signature_date = db.Column(db.DateTime(255))
     service_commencement = db.Column(db.DateTime(255))
     contract_duration_month = db.Column(db.Integer)
-    bespoke_services = db.Column(db.Integer)
-    what_bespoke_services = db.Column(db.Integer)
-    contract_value_usd = db.Column(db.Numeric)
+    contract_value_usd = db.Column('contract value_usd', db.Numeric)
     estimated_value_usd = db.Column(db.Numeric)
     projected_margin_usd = db.Column(db.Numeric)
     component_of_bespoke = db.Column(db.Integer)
@@ -76,8 +81,7 @@ class Project(db.Model):
     is_transition_plan = db.Column(db.Integer)
     transition_plan_date = db.Column(db.DateTime(255))
     is_transition_charges = db.Column(db.Integer)
-    transition_charges_usd = db.Column(db.Numeric)
-    other_milestones = db.Column(db.Integer)
+    transition_charges = db.Column(db.Numeric)
     milestones = db.Column(db.Integer)
     payment_milestones = db.Column(db.Integer)
     service_levels_without_credit = db.Column(db.Integer)
@@ -95,13 +99,21 @@ class Project(db.Model):
     key_personnel = db.Column(db.Integer)
     supplier_personnel = db.Column(db.Integer)
     customer_personnel = db.Column(db.Integer)
-    planned_duration_month = db.Column(db.Integer)
+    planned_negotiation_month = db.Column(db.Integer)
     negotiations_month = db.Column(db.Integer)
     sole_sourced = db.Column(db.Integer)
     proposed_period_weeks = db.Column(db.Integer)
     actual_period_weeks = db.Column(db.Integer)
     is_due_diligence_completed = db.Column(db.Integer)
-    
+    agreement_party = db.Column('agreement party', db.Integer)
+    type_of_service = db.Column(db.Integer)
+    currency = db.Column(db.Integer)
+    service_credit_cap_type = db.Column(db.Integer)
+    service_level_cap_percentage = db.Column(db.Numeric)
+    CREATED_BY = db.Column(UUID)
+    UPDATED_BY = db.Column(UUID)
+    UPDATED_AT = db.Column(db.DateTime, server_default=db.func.now())
+    CREATED_AT = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
     
     def __repr__(self):
         return '<Project %r>' % self.project_name
@@ -109,17 +121,17 @@ class Project(db.Model):
 class ContractValue(db.Model):
     __tablename__ = 'contract_value'
 
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(UUID, primary_key=True)
     year = db.Column(db.Integer)
     contract_value_usd = db.Column(db.Numeric)
     project_id = Column(ForeignKey('project.id'))
     estimated_cost_usd = db.Column(db.Numeric)
-    # CREATED_BY = Column(UUID)
-    # UPDATED_BY = Column(UUID)
-    # UPDATED_AT = Column(DateTime)
-    # CREATED_AT = Column(DateTime)
-
-    # project = relationship('Project')
+    CREATED_BY = db.Column(UUID)
+    UPDATED_BY = db.Column(UUID)
+    UPDATED_AT = db.Column(db.DateTime, server_default=db.func.now())
+    CREATED_AT = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
+    
+    project = relationship('Project')
     
     def __repr__(self):
         return '<ContractValue %r>' % self.contract_value_usd
@@ -128,9 +140,9 @@ class ContractValue(db.Model):
 class Questionnaire(db.Model):
     __tablename__ = 'questionnaire'
 
-    id = db.Column(db.Integer, primary_key=True)
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'))
-    user_filler = db.Column(db.Integer, db.ForeignKey('user.id'))
+    id = db.Column(UUID, primary_key=True)
+    project_id = db.Column(db.ForeignKey('project.id'))
+    user_filler = db.Column(db.ForeignKey('user.id'))
     to_date = db.Column(db.DateTime(255))
     is_transition_completed = db.Column(db.Integer)
     is_transition_charges_paied = db.Column(db.Integer)
@@ -159,9 +171,13 @@ class Questionnaire(db.Model):
     customer_personnel_changed = db.Column(db.Integer)
     invoiced_charges_usd = db.Column(db.Numeric)
     is_not_invoiced = db.Column(db.Integer)
+    CREATED_BY = db.Column(UUID)
+    UPDATED_BY = db.Column(UUID)
+    UPDATED_AT = db.Column(db.DateTime, server_default=db.func.now())
+    CREATED_AT = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
     
-    # project = relationship('Project')
-    # user = relationship('User')
+    project = relationship('Project')
+    user = relationship('User')
     
 def __repr__(self):
         return '<Questionnaire %r>' % self.project_id
@@ -311,7 +327,6 @@ class ProjectInput(graphene.InputObjectType):
     is_transition_charges = graphene.Int()
     other_milestones = graphene.Int()
     milestones = graphene.Int()
-    payment_milestones = graphene.Int()
     transition_charges_usd = graphene.Float()
     is_transformation_plan = graphene.Int()
     transformation_plan_start = graphene.types.datetime.DateTime()

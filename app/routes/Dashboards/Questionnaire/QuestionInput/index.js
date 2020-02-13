@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 
 import {
@@ -27,9 +27,11 @@ import {
 } from "../../../../components";
 
 const QuestionInput = props => {
-  const { qu } = props;
+  const { qu, name } = props;
   const { final } = props;
   const [value, setValue] = React.useState("");
+
+  // const [form, setState] = useState({ })
 
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
@@ -47,7 +49,18 @@ const QuestionInput = props => {
       return;
     }
     setValue(newValue);
+    console.log('new', newValue)
   }
+
+
+  const updateField = e => {
+    setState({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+    console.log('doug', form);
+  };
+
 
   return (
     <div>
@@ -73,10 +86,10 @@ const QuestionInput = props => {
             <Col sm={3}>
               <Input
                 type="number"
-                name=""
+                name={name}
                 placeholder="Value"
-                onChange={onValueChange}
-                value={value}
+                onChange={updateField}
+                value={form[name]}
               />
             </Col>
           </FormGroup>
@@ -93,7 +106,7 @@ const QuestionInput = props => {
             color="primary"
             className="ml-auto px-4"
           >
-            Next
+            {final ? "Finish" : "Next"}
             <i className="fa fa-angle-right ml-2"></i>
           </Button>
         </div>
