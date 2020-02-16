@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import _ from "lodash";
 
 import {
@@ -27,9 +28,12 @@ import {
 } from "../../../../components";
 
 const QuestionText = props => {
-  const { qu } = props;
+  const { qu, name } = props;
   const { final } = props;
-  // const [value, setValue] = React.useState("");
+  const { control, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+
+  const [value, setValue] = React.useState("");
 
   const [form, setState] = useState({
     id: '',
@@ -85,22 +89,21 @@ const QuestionText = props => {
     props.prevFn();
   }
 
-  // function onValueChange(newValue) {
-  //   if (value === newValue) {
-  //     setValue(newValue);
-  //     return;
-  //   }
-  //   setValue(newValue);
-  //   console.log('newValue', newValue)
-  // }
-
-  function updateField(e) {
-    setState({
-      ...form,
-      [e.target.name]: e.target.value
-    })
-    console.log('object', ...form)
+  function onValueChange(newValue) {
+    if (value === newValue) {
+      setValue(newValue);
+      return;
+    }
+    setValue(newValue);
   }
+
+  // function updateField(e) {
+  //   setState({
+  //     ...form,
+  //     [e.target.name]: e.target.value
+  //   })
+  //   console.log('object', ...form)
+  // }
   return (
     <div>
       <CardBody
@@ -117,23 +120,21 @@ const QuestionText = props => {
           marginLeft: "100px"
         }}
       >
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <FormGroup>
             <Label style={{
                 marginLeft: '18px'
             }}>Please Enter..</Label>
             <Col sm={3}>
-              <Input
+              {/* <Input
                 type="text"
                 name={name}
-                value={form[name]}
-                placeholder="Value"
-                onChange={updateField}
-                // name={name}
-                // placeholder="Text"
-                // value={value}
-                // onChange={(event) => onValueChange(event.target.value)}
-              />
+                placeholder="Text"
+                value={value}
+                onChange={(event) => onValueChange(event.target.value)}
+              /> */}
+              <Controller as={<Input />} type="text" name={name} control={control} defaultValue="" />
+              <input type="submit" />
             </Col>
           </FormGroup>
         </Form>

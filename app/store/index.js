@@ -8,7 +8,8 @@ import UserProfile from './reducers';
 
 const rootReducer = combineReducers({
     form: formReducer,
-    userProfile: UserProfile
+    userProfile: UserProfile,
+    updateAction: updateAction
   });
 
 const store = createStore(rootReducer);

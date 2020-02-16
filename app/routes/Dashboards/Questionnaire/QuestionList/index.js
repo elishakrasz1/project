@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { connect } from 'react-redux'
+
+
 import _ from "lodash";
 
 import {
@@ -30,9 +34,14 @@ import {
 const QuestionList = props => {
   const { qu, name, listOptions } = props;
   const { final } = props;
+  const { control, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+  // const onSubmit = (data) => props.updateAction(data)
+
+
   const [value, setValue] = React.useState("");
-  const [cSelected, setCSelected] = useState([]);
-  const [rSelected, setRSelected] = useState(null);
+  
+
 
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
@@ -81,26 +90,35 @@ const QuestionList = props => {
           marginLeft: "100px"
         }}
       >
+                      {/* <Controller as={<Input />} type="text" name={name} control={control} defaultValue="" /> */}
+        
         <ButtonGroup
+          color="primary"
+          onSubmit={handleSubmit(onSubmit)}
+          name={name}
           style={{
             marginLeft: "5px"
           }}
         >
-          {listOptions.map((value, index) => (
-            <Button
-              outline
-              key={index}
-              color="primary"
-              name={name}
-              value={value}
-              // onClick={onCheckboxBtnClick}
-              onClick={onValueChange}
-              // onClick={() => setRSelected(i)}
-              // active={rSelected === i}
-              style={{ marginRight: "8px" }}
-            >
-              {value}
-            </Button>
+          {listOptions.map((item, index) => (
+            <Controller as={Button} name={name} control={control} defaultValue="" value={index} key={index} type="submit" style={{
+              marginLeft: "5px",
+              backgroundColor: 'blue'
+            }}>{item}</Controller>
+            // <Button
+            //   outline
+            //   key={index}
+            //   color="primary"
+            //   name={name}
+            //   value={value}
+            //   // onClick={onCheckboxBtnClick}
+            //   onClick={onValueChange}
+            //   // onClick={() => setRSelected(i)}
+            //   // active={rSelected === i}
+            //   style={{ marginRight: "8px" }}
+            // >
+            //   {value}
+            // </Button>
           ))}
         </ButtonGroup>
         {/* <Form>

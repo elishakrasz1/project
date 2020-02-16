@@ -1,5 +1,5 @@
 const SWITCH_USER = 'SWITCH_USER';
-
+const UPDATE_ACTION = 'UPDATE_ACTION';
 const UPDATE_PROFILE = 'UPDATE_PROFILE';
 const DELETE_PROFILE = 'DELETE_PROFILE';
 
@@ -24,15 +24,12 @@ function deleteProfile() {
   return { type: DELETE_PROFILE }
 }
 
-function updateAction(state, payload) {
-    return {
-      ...state,
-      data: {
-        ...state.data,
-        ...payload
-      }
-    };
-  }
+function updateAction(data) {
+  return {
+    type: UPDATE_ACTION,
+    data
+  };
+}
 
-export { SWITCH_USER, UPDATE_PROFILE, DELETE_PROFILE }
+export { SWITCH_USER, UPDATE_PROFILE, DELETE_PROFILE, UPDATE_ACTION }
 export { switchUser, updateProfile, deleteProfile, updateAction }

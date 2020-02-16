@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { connect } from 'react-redux'
+// import updateAction from './actions'
 import _ from "lodash";
 
 import {
@@ -29,9 +32,13 @@ import { func } from "prop-types";
 
 const bodyObject = {}
 
-const QuestionInput = props => {
+export const QuestionInput = props => {
   const { qu, name } = props;
   const { final } = props;
+  const { control, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+  // const onSubmit = (data) => props.updateAction(data)
+
   const [value, setValue] = React.useState([]);
   
   const [form, setState] = useState({
@@ -127,13 +134,15 @@ const QuestionInput = props => {
           marginLeft: "100px"
         }}
       >
-        <Form>
+        <Form onSubmit={handleSubmit(onSubmit)}>
           <FormGroup>
             <Label style={{
                 marginLeft: '18px'
             }}>Please Enter...</Label>
             <Col sm={3}>
-              <Input
+            <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" />
+
+              {/* <Input
                 type="number"
                 name={name}
                 value={value}
@@ -141,7 +150,8 @@ const QuestionInput = props => {
                 placeholder="Value"
                 // onChange={updateField}
                 onChange={(event) => onValueChange(event.target.value)}
-              />
+              /> */}
+              <input type="submit" />
             </Col>
           </FormGroup>
         </Form>
@@ -167,3 +177,5 @@ const QuestionInput = props => {
 };
 
 export default QuestionInput;
+
+// connect(({ }) => ({  }), updateAction)(QuestionInput)
