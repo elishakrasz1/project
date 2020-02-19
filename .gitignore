@@ -25,3 +25,6 @@ amplify-gradle-config.json
 amplifyxc.config
 
 server/venv
+server_dev/care
+
+
