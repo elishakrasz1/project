@@ -1,6 +1,8 @@
 import React from "react";
 import _ from "lodash";
-
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import { ButtonInput } from "../../../Forms/DatePicker/components"
 import {
   Container,
   Wizard,
@@ -27,11 +29,15 @@ import {
 } from "../../../../components";
 import { DatePickerComp } from "./DatePickerComp";
 
+const startDate = moment().toDate()
+
 const QuestionDate = props => {
   const { qu } = props;
   const { final } = props;
   const [value, setValue] = React.useState("");
+  const [startDate, setDate] = React.useState(moment().toDate())
 
+  // startDate = moment().toDate()
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
     props.nextFn();
@@ -40,6 +46,10 @@ const QuestionDate = props => {
   function previousPreprocess() {
     props.saveState(props.index, { id: props.id, value });
     props.prevFn();
+  }
+
+  function handleChangeStart(startDate) {
+    setDate(startDate)
   }
 
   function onValueChange(newValue) {
@@ -67,7 +77,14 @@ const QuestionDate = props => {
           marginLeft: "100px"
         }}
       >
-          <DatePickerComp 
+          {/* <DatePickerComp 
+            onClick={onValueChange}
+            onValueChange={onValueChange}
+          /> */}
+          <DatePicker 
+            customInput={ <ButtonInput /> }
+            selected={startDate}
+            onChange={handleChangeStart}
             onClick={onValueChange}
             onValueChange={onValueChange}
           />

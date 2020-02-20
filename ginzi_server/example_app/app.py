@@ -8,9 +8,10 @@ from flask_graphql import GraphQLView
 
 app = Flask(__name__)
 CORS(app)
+
 app.config.update(
     {
-        "SQLALCHEMY_DATABASE_URI": "postgresql://postgres:Password1@localhost/hope",
+        "SQLALCHEMY_DATABASE_URI": "postgresql://postgres:Password1@localhost/ginzi",
         "SQLALCHEMY_TRACK_MODIFICATIONS": True,
         "DEBUG": True,
     }

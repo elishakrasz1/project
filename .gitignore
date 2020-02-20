@@ -24,7 +24,16 @@ amplifyconfiguration.json
 amplify-gradle-config.json
 amplifyxc.config
 
-server/venv
-server_dev/care
-
+# server/venv
+# server_dev/care
+# server_dev/venv
+ginzi_dev/
+server/
+server_dev/
+ginzi_dev/open
+ginzi_update/
+replacement/
+place/
+ginzi_server/venv
+ginzi_server/migrations
 

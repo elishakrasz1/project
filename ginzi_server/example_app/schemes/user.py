@@ -3,7 +3,7 @@ from example_app.utils import (
     SQLAlchemyInputObjectType,
     input_to_dictionary
 )
-from example_app.models import User, Project, UserProject, Milestone, ContractValue, Bespoke, Questionnaire
+from example_app.models import User, Project, UserProject, Milestone, ContractValue, Bespoke, Questionnaire, QuestionnaireGovernance, Dispute, Change, Charge, Governance
 from example_app.extensions import db
 import graphene
 from graphql_relay.node.node import from_global_id
@@ -21,7 +21,6 @@ class UserCreateMutation(SQLAlchemyMutation):
 
     class Arguments:
         input = UserInputType(required=True)
-        id = graphene.UUID()
 
     @classmethod
     def mutate(cls, self, info, **kwargs):
@@ -49,7 +48,6 @@ class UserUpdateMutation(SQLAlchemyMutation):
     class Arguments:
         input = UserInputType(required=True)
         id = graphene.UUID(required=True)
-        # id = graphene.ID(required=True)
 
     @classmethod
     def mutate(cls, self, info, **kwargs):

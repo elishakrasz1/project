@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import gql from 'graphql-tag'
 import { useForm, Controller } from "react-hook-form";
+import { useMutation } from '@apollo/react-hooks'
 import { connect } from 'react-redux'
 // import updateAction from './actions'
 import _ from "lodash";
@@ -30,57 +32,34 @@ import {
 } from "../../../../components";
 import { func } from "prop-types";
 
-const bodyObject = {}
+const UPDATE_PROJECT = gql`
+  mutation UpdateProject($input: ProjectUpdateMutationInput!) {
+  updateProject(id: "UHJvamVjdE91dHB1dFR5cGU6MQ==", input: $input) {
+  # updateProject(id: 1, input: $input) {
+    ok
+    output {
+      id
+      dbId
+      projectName
+    }
+  }
+}
+`
 
 export const QuestionInput = props => {
   const { qu, name } = props;
   const { final } = props;
   const { control, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const [updateProject, { data } ] = useMutation(UPDATE_PROJECT);
+  // const onSubmit = inputData => console.log(inputData);
   // const onSubmit = (data) => props.updateAction(data)
+
+  const onSubmit = (inputData) => {
+    updateProject({ variables: { input: {cProjectId: value} }} )
+  }
 
   const [value, setValue] = React.useState([]);
   
-  const [form, setState] = useState({
-    id: '',
-    cProjectId: '',
-    projectName: '',
-    signatureDate: '',
-    serviceCommencement: '',
-    contractDurationMonth: '',
-    contractValueUsd: '',
-    projectedMargin: '',
-    componentOfBespoke: '',
-    oftenProvideServices: '',
-    isTransitionPlan: '',
-    transitionPlanDate: '',
-    isTransitionCharges: '',
-    transitionCharges: '',
-    isTransformationPlan: '',
-    transformationPlanStart: '',
-    transformationPlanEend: '',
-    serviceLevelsWithCredit: '',
-    isEarnBack: '',
-    isCustomerSatisfactionReport: '',
-    customerSatisfactionForm: '',
-    governanceType: '',
-    governanceOften: '',
-    keyPersonnel: '',
-    supplierPersonnel: '',
-    customerPersonnel: '',
-    plannedNegotiationMonth: '',
-    negotiationsMonth: '',
-    soleSourced: '',
-    proposedPeriodWeeks: '',
-    actualPeriodWeeks: '',
-    isDueDiligenceCompleted: '',
-    agreementParty: '',
-    typeOfService: '',
-    currency: '',
-    serviceLevelWithoutCredit: '',
-    serviceLevelCapPercentage: '',
-    serviceCredeitCapType: '',
-  })
 
   function nextPreprocess() {
     props.saveState(props.index, { id: props.id, value });
@@ -92,32 +71,28 @@ export const QuestionInput = props => {
     props.prevFn();
   }
 
-  function updateField(e) {
-    setState({
-      ...form,
-      [e.target.name]: e.target.value
+  // onChangeHandler = e => {
+  //   const { name, value } = e.target;
+  //   this[name] = value
+  // }
+
+  const submit = ({ name } ) => {
+    // e.preventDefault()
+    updateProject({
+      variables: { input: {cProjectId: value} }
     })
-    console.log('object', form)
   }
+  
   function onValueChange(newValue) {
     if (value === newValue) {
       setValue(newValue);
       return;
     }
     setValue(newValue);
-    console.log('new', value)
+    console.log('new', newValue)
   }
 
-
-  // const updateField = e => {
-  //   setState({
-  //     ...form,
-  //     [e.target.name]: e.target.value
-  //   });
-  //   console.log('doug', form);
-  // };
-
-
+  let input;
   return (
     <div>
       <CardBody
@@ -134,23 +109,23 @@ export const QuestionInput = props => {
           marginLeft: "100px"
         }}
       >
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit(submit)}>
+        {/* <Form onSubmit={handleSubmit(onSubmit)}> */}
           <FormGroup>
             <Label style={{
                 marginLeft: '18px'
             }}>Please Enter...</Label>
             <Col sm={3}>
-            <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" />
+            {/* <Controller as={<Input />} type="number" name={name} control={control} defaultValue="" /> */}
 
-              {/* <Input
-                type="number"
+              <Input
+                type="text"
                 name={name}
                 value={value}
-                // value={form[name]}
                 placeholder="Value"
-                // onChange={updateField}
-                onChange={(event) => onValueChange(event.target.value)}
-              /> */}
+                onChange={(e) => onValueChange(e.target.value)}
+                // onChange={({ target}) => setNameValue(target.value)}
+              />
               <input type="submit" />
             </Col>
           </FormGroup>

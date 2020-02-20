@@ -4,4 +4,3 @@ Flask-SQLAlchemy
 graphene-sqlalchemy
 Flask-Migrate
 psycopg2-binary
-flask-cors
